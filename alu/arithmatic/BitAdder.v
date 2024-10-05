@@ -1,4 +1,4 @@
-module Adder (
+module BitAdder (
     i_clk, // input clock
     i_reset, // input reset
     i_a, // input wire a

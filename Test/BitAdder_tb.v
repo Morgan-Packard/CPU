@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
-`include "alu/arithmatic/Adder.v"
+`include "../CPU/alu/arithmatic/BitAdder.v"
 
-module Adder_tb;
+module BitAdder_tb;
 
     reg i_clk;
     reg i_reset;
@@ -12,7 +12,7 @@ module Adder_tb;
     wire o_c;
 
     // Instantiate the Adder module
-    Adder uut (
+    BitAdder uut (
         .i_clk(i_clk),
         .i_reset(i_reset),
         .i_a(i_a),
@@ -26,6 +26,10 @@ module Adder_tb;
     always #5 i_clk = ~i_clk; // Toggle clock every 5 time units
 
     initial begin
+
+        $dumpfile("BitAdder.vcd");
+        $dumpvars(0,BitAdder_tb);
+
         // Initialize all inputs
         i_clk = 0;
         i_reset = 0;
